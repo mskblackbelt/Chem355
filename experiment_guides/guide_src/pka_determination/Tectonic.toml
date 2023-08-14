@@ -1,0 +1,9 @@
+[doc]
+name = "Determination of the pKa of Methyl Red"
+bundle = "https://data1.fullyjustified.net/tlextras-2022.0r0.tar"
+
+[[output]]
+name = "pka_of_methyl_red"
+type = "pdf"
+shell_escape = true
+shell_escape_cwd = ".."

@@ -1,0 +1,9 @@
+[doc]
+name = "Mutual Solubilities of Liquids in a Binary Two-Phase System"
+bundle = "https://data1.fullyjustified.net/tlextras-2022.0r0.tar"
+
+[[output]]
+name = "two-phase_soln"
+type = "pdf"
+shell_escape = true
+shell_escape_cwd = ".."

@@ -1,0 +1,273 @@
+\maketitle
+
+\begin{abstract}
+\noindent The \pKa{} of methyl red will be determined by measuring UV/Vis absorbance spectra as a function of \pH.\thanks{Based on an experiment from \textcite{sime1990physical} and \emph{CH341 Lab Manual}, Colby College, Waterville, ME., 2011.}
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+Methy red (\iupac{4-dimethylaminobenzene-2'-carboxylic acid}) is a commonly used indicator for acid--base titrations. 
+We will measure the visible absorption spectra of the acidic and basic forms of this compound. 
+Next we will prepare a series of buffered solutions of methyl red at known \pH{} values. 
+By following the change in absorbance as a function of \pH, we will determine the acid dissociation constant, or \pKa. 
+This technique is not restricted to indicators, and can be used with any substance whose absorption spectrum changes with \pH. 
+
+The acid form of the indicator, which we will designate as \ch{HMR}, is zwitterionic (\cref{fig:mr_forms}). 
+The basic form is designated as \ch{MR^-}. 
+
+\begin{figure*}[htb]
+	\centering 
+	\setchemfig{atom sep=1.8em}
+	\chemnameinit{}
+	\schemestart
+		\definesubmol{H3C}{-[,,,,draw=none]}
+		\chemleft[
+			\chemname{\subscheme{
+				\chemfig{N(-[::+120]H_3C)(-[::-120]H_3C)-*6(-=-(-N=\chemabove{\chembelow{N}{H}}{\scriptstyle{\oplus}}-*6(=-=-=(-[::-60](-[::-60]\chemabove{O}{\scriptstyle\ominus})(=[::+60]O))-))=-=)}
+				\arrow{<->}
+				\chemfig{N(-[4,0.4,,,draw=none]\scriptstyle{\oplus})(-[::+120]H_3C)(-[::-120]H_3C)=*6(-=-(=N-\chembelow{N}{H}-*6(-=-=-(-[::-60](-[::-60]\chemabove{O}{\scriptstyle\ominus})(=[::+60]O))=))-=-)}
+			}}{\ch{HMR} --- acid form, red}
+		\chemright]
+	\arrow{<=>[*{0}\ch{OH^{-}}][*{0}\ch{H^{+}}]}[-90,1]
+	\chemname{
+	\chemfig{N(-[::+120]H_3C)(-[::-120]H_3C)-*6(-=-(-N=N-*6(=-=-=(-[::-60](-[::-60]\chemabove{O}{\scriptstyle\ominus})(=[::+60]O))-))=-=)}
+	}{\ch{MR^{-}} --- base form, yellow}
+	\schemestop
+	\chemnameinit{}  
+	\caption{Acid and base forms of methyl red.}
+	\label{fig:mr_forms}
+\end{figure*}
+
+The equilibrium of interest is 
+\begin{equation}
+	\ch{HMR + H2O <=> MR^- + H3O^+}
+	\label{rxn:mr_dissociation}
+\end{equation}
+The equilibrium constant for \cref{rxn:mr_dissociation} is the acid dissociation constant:
+\begin{equation}
+	\Ka' = \frac{\ch{[H3O^+]}\ch{[MR^-]}}{\ch{[HMR]}}\
+	\label{eq:dissoc_const}
+\end{equation}
+The prime (\('\)) indicates that we have used concentrations rather than activities.\sidenote{More information about activities can be found in any physical chemistry text, such as \textcite{2023Activities,atkins94}.}
+Activities are necessary in true thermodynamic equilibrium constants. 
+Using concentrations instead gives the \emph{effective} or \emph{conditional} equilibrium constant.
+Taking the negative logarithm\sidenote{By definition, \(\pH = -\log\ch{[H^+]}\) and \(\pKa = -\log\Ka\).}  of both sides of \cref{eq:dissoc_const} gives:
+\begin{equation}
+	\pKa' = \pH - \log{\frac{\ch{[MR^-]}}{\ch{[HMR]}}}
+	\label{eq:p_dissoc_const}
+\end{equation}
+
+In this experiment, we will determine this equilibrium constant, \(\pKa'\), by varying the \pH\ and measuring the ratio \(\ch{[MR^-]}/\ch{[HMR]}\). 
+We will used acetic acid/acetate buffers to control the \pH, since the \Ka\ value for acetic acid is in the same range as the \(\Ka'\) value for methyl red. 
+The \pH\ of these buffers force methyl red to distribute itself somewhat evenly between the two colored forms. 
+
+The absorption of light is governed by the Beer-Lambert Law:
+\begin{equation}
+	A = \varepsilon c \ell
+	\label{eq:beer-lambert_law}
+\end{equation}
+where \(A\) is the absorbance, \(\varepsilon\) is the molar absorption coefficient (in \unit{\per\Molar\per\cm}), \(c\) is the concentration of the absorbing species (in \unit{\Molar}), and \(\ell\) is the path length of the cell (in \unit{\cm}). 
+The absorbance of mixtures is the sum of the separate absorbances. 
+In mixtures of the acid and base forms of methyl red, the total absorbance is 
+\begin{equation}
+	A = A_{\ch{MR^-}} + A_{\ch{HMR}}
+	\label{eq:summed_absorbances}
+\end{equation}
+
+The absorption spectra of \ch{HMR} and \ch{MR^-} are given schematically in \cref{fig:mixture_absorbance}. 
+For two components in solution, the absorbance must be measured at a minimum of two different wavelengths. 
+The best wavelengths to choose for the analysis are where one form absorbs strongly and the absorbance of the other form is negligible. 
+Examination of \cref{fig:mixture_absorbance} reveals that there are no wavelengths where one form, acid or base, absorbs exclusively. 
+For this case, we need to set up two equations with two unknowns, one equation for each wavelength. 
+Call the two wavelengths \(\lambda_1\) and \(\lambda_2\). 
+Then absorbance at \(\lambda_1\) can be called \(A_1\) and the absorbance at \(\lambda_2\) called \(A_2\). 
+The two measurements then provide two simultaneous equations with two unknowns:
+\begin{align}
+	A_1 &= \varepsilon_{1, \ch{MR^-}} \ch{[MR^-]} \ell + \varepsilon_{1,\ch{HMR}} \ch{[HMR]} \ell 
+	\label{eq:abs_part_one} \\
+	A_2 &= \varepsilon_{2, \ch{MR^-}} \ch{[MR^-]} \ell + \varepsilon_{2,\ch{HMR}} \ch{[HMR]} \ell 
+	\label{eq:abs_part_two}
+\end{align}
+The molar absorbance coefficients are illustrated in \cref{fig:mixture_absorbance}. 
+The molar absorbance coefficients are determined from standard solutions that contain one component alone. 
+\Cref{eq:abs_part_one,eq:abs_part_two} provide two equations in two unknowns. 
+For an unknown solution, the absorbances at the two wavelengths, \(A_1\) and \(A_2\), are determined and then \cref{eq:abs_part_one,eq:abs_part_two} are solved for the unknown concentrations \ch{[MR^-]} and \ch{[HMR]} at each given \pH. 
+
+\begin{figure}[htb]
+	\centering
+	\input{figures/mr_spectra.tex}
+	\caption{Absorbance of a solution is the sum of the absorbances of the constituents. 
+	Measurements at two different wavelengths are necessary to determine the composition of a two-constituent solution if the absorbance bands overlap. 
+	Absorbances are denoted by \(\varepsilon_{i,j}\), where \(i\) and \(j\) represent the wavelength of measurement and the molecular constituent, respectively.}
+	\label{fig:mixture_absorbance}
+\end{figure}
+
+An isosbestic point is defined as the wavelength where two species have the same molar absorptivity. 
+At the isosbestic point, the total absorbance of a solution of the two ions is independent of their relative concentrations. 
+Instead, it is dependent only on the total dye concentration. 
+The appearance of an isosbestic point is evidence that only two species are involved. 
+\Cref{fig:mixture_absorbance} shows a single isosbestic point. 
+You will use your spectra to determine if there are only two absorbing species in this experiment. 
+
+\subsection{Ionic Strength Dependence}
+\label{subs:ionic_strength_dependence}
+
+Equilibrium constants involving ionic species are especially sensitive to ionic strength. 
+The ionic strength is a measure of the total ion concentration in solution. 
+The activity of all the species in solution are a function of the ionic strength. 
+In this experiment, we are neglecting the difference between activity and concentration, so the \(\pKa'\) applies to only one specific ionic strength. 
+The ionic strength is defined as
+\begin{equation}
+	I = \frac{1}{2} \sum c_i z_i^2
+	\label{eq:ionic_strength}
+\end{equation}
+where \(c_i\) is the concentration of ion \(i\) and \(z_i\) is the charge on ion \(i\). 
+The sum is taken over \emph{all} ions in solution. 
+For a \({1{:}1}\) salt of singly charged ions, such as \ch{NaCl}, \ch{KCl}, and sodium acetate, the concentration of the salt is equal to the ionic strength. 
+\ch{KCl} is added to the solution in this experiment to maintain a constant ionic strength. 
+
+\section{Safety Precautions}
+\label{sec:safety}
+
+\begin{itemize}
+	\item Methyl red, in addition to many other indicators, is a derivative of dimethylaminoazobenzene, a well-known carcinogen. Care should be taken while handling the solid and any solutions made from the compound. 
+	\item Ethanol  is highly flammable, take care handling concentrated samples near ignition sources (heat, sparking, etc.).
+	\item Standard precautions should be taken when working with strong acids or bases (gloves, goggles, proper clothing).
+\end{itemize}
+
+\section{Procedure}
+\label{sec:procedure}
+
+\subsection{Required Equipment}
+\label{subs:required_equipment}
+
+\begin{itemize}
+	\item (2) \qty{100}{\mL} volumetric flasks
+	\item (3) \qty{10}{\mL} volumetric pipets
+	\item (1) \qty{10}{\mL} graduated cylinder
+	\item (7) \qty{30}{\mL} beakers
+	\item (2) \qty{50}{\mL} burets
+	\item (2) plastic buret funnels
+	\item (1) stirring rod
+	\item (2) Pasteur pipets
+	\item (1) box Chem wipes
+	\item (1) buret stand
+	\item (3) \qty{150}{\mL} beakers
+	\item (1) plastic cuvette
+	\item \pH\ meter and electrodes, \pH\ 4 and \pH\ 7 buffers for standardization
+	\item \qty{0.10}{\Molar} acetic acid, \qty{0.10}{\Molar} sodium acetate, \qty{1.0}{\Molar} \ch{KCl}
+\end{itemize}
+
+\subsection{Making the Stock Solutions}
+\label{subs:stock_solutions}
+
+\marginnote{\textbf{Note:} These solutions may already be prepared for you. If this is the case, be sure to record all concentration/mass values provided fro the stock solutions.}
+
+\begin{description}
+	\item[Stock Solution of Methyl Red] 
+	Prepare a \qty{0.05}{\percent} solution of methyl red by dissolving \qty{0.025}{\gram} in \qty{20}{\mL} of \qty{95}{\percent} ethanol in a \qty{50}{\mL} volumetric flask. 
+	Add water to within a few \unit{\mL} of the mark. 
+	Add \qty{\sim0.1}{\Molar} \ch{NaOH} drop-wise until all the solid dissolves, then dilute to the mark with more water. 
+	Transfer \qty{20}{\mL} of this solution into \qty{50}{\mL} of \qty{95}{\percent} ethanol in a \qty{200}{\mL} volumetric flask. 
+	Dilute to the mark with water. 
+	This solution should be orange colored. 
+	Make sure to record the actual weight of methyl red used to make up this solution. 
+	\item[Basic Solution of Methyl Red] 
+	Prepare a basic solution of methyl red by adding to a \qty{100}{\mL} volumetric flask the following items: \qty{10.0}{\mL} of \qty{0.100}{\Molar} sodium acetate, \qty{10.0}{\mL} of the stock methyl red solution, and \qty{9}{\mL} of \qty{1.0}{\Molar} potassium chloride.\sidenote[][-4\baselineskip]{Notice the precision denoted in each measurement. Be sure to use the appropriate glassware to transfer each solution to maintain this level of precision. This means using volumetric pipets for the methyl red and sodium acetate solutions, and a graduate cylinder is appropriate for the (low precision) \ch{KCl} solution.}
+	Dilute to the mark with DI water and mix thoroughly.\sidenote{The ionic strength of all solutions will be kept at \qty{0.1}{\Molar} using \ch{KCl}. The molarity of methyl red in this solution is negligible compared to the \ch{KCl} concentration.} 
+	\item[Acid Solution of Methyl Red]
+	Prepare a basic solution of methyl red by adding to a \qty{100}{\mL} volumetric flask the following items: \qty{10.0}{\mL} of \qty{0.100}{\Molar} acetic acid solution, \qty{10.0}{\mL} of the stock methyl red solution, and \qty{10}{\mL} of \qty{1.0}{\Molar} potassium chloride.\sidenote{This solution requires more \ch{KCl} to maintain an ionic strength of \qty{0.1}{\Molar} because the acetic acid is not strongly ionized and therefore does not contribute ions to the solution.}
+\end{description}
+
+\subsection{Preparation and Analysis of Buffer Solutions}
+\label{subs:preparation_and_analysis_of_buffer_solutions}
+
+\begin{description}
+	\item[Preparation of Buffer Solutions] 
+	Fill two burets with the acidic and basic methyl red solutions. 
+	Prepare five buffer solutions by mixing \(V\) \unit{\mL} of the basic solution with \((20-V)\) \unit{\mL} of the acidic solution in small beakers. 
+	A range from \qtyrange{10}{18}{\mL} for \(V\) will give optimal results. 
+	\item[Measurement of the \pH\ of the Methyl Red Buffer Solutions]
+	Calibrate the \pH\ meter using \pH\ 7 and \pH\ 4 buffers. 
+	Measure the \pH\ of each of the five buffer solutions by inserting the measuring electrodes directly into each of the beakers you prepared in the previous step. 
+	Be sure to rinse and dry off the electrodes (using a stream of air from an empty wash bottle) before inserting them into the next solution in order to avoid cross-contamination and/or dilution. 
+	Instructions on the use of the \pH\ meter is available in the Appendix of this lab manual. 
+	You can perform these measurements after you determine the absorbance spectra so long as you are careful in keeping sufficient volume of your solutions to submerge the \pH\ electrode past the reference junction. 
+	\item[Absorbance Measurements]
+	In this experiment, you will use the Fisher Scientific Evolution200 UV/Vis absorption spectrometer. 
+	This instrument will allow you to scan the full spectrum of the solution at each \pH. 
+	You will be able to verify the existence of an isosbestic point. 
+	Instructions for use of the Evolution200 spectrometer are given in the Appendix. 
+	You should overlay the spectra to make the isosbestic point easier to see. 
+	Be sure to set the scan range for \qtyrange{350}{850}{\nm}. 
+	\begin{enumerate}
+		\item Calibrate with deionized water.
+		\item Rinse the cuvette with two small portions of the basic methyl red solution (the one with just sodium acetate solution added to it), then fill the cuvette and measure its absorbance. 
+		This spectrum will be used to calculate \(\varepsilon_{1, \ch{MR^-}}\) and \(\varepsilon_{2, \ch{MR^-}}\). 
+		\item Rinse the cuvette with two small portions of the acidic methyl red solution (the one with only acetic acid added), then fill the cuvette and measure its absorbance. 
+		This spectrum will be used to calculate \(\varepsilon_{1, \ch{HMR}}\) and \(\varepsilon_{2, \ch{HMR}}\).
+		\item Use the above spectra to choose the two absorbance wavelengths. 
+		Measure the absorbance of each of the prepared buffered solutions: rinse the cuvette twice with small amounts of each new solution, then fill for measurement. 
+		Make sure the software is set to record the correct sample, then measure the spectrum. 
+	\end{enumerate}
+\end{description}
+
+\section{Data Analysis}
+\label{sec:data_analysis}
+
+Calculate the concentration of methyl red in your solutions. 
+Use the spectrum in just sodium acetate to calculate \(\varepsilon_{1, \ch{MR^-}}\) and \(\varepsilon_{2, \ch{MR^-}}\).
+Use the spectrum in just acetic acid to \(\varepsilon_{1, \ch{HMR}}\) and \(\varepsilon_{2, \ch{HMR}}\).
+Use \cref{eq:abs_part_one,eq:abs_part_two} to (computationally) determine the concentrations of \ch{MR^-} and \ch{HMR} at each \pH\ value. 
+Plot \(\log{(\ch{[MR^-]}/\ch{[HMR]})}\) versus \pH. 
+Fit the data with a straight line. 
+The intercept value of this line with the \(x\)-axis (not the usual \(y\)-axis) corresponds to equal concentrations of the basic and acidic forms of the indicator. 
+From the \pH\ at the \(x\)-intercept, determine the \(\pKa'\). Also determine the \(\pKa'\) from the value of the \(y\)-intercept. 
+In your report, rearrange \cref{eq:p_dissoc_const} to give a straight line form with \(y = \log{(\ch{[MR^-]}/\ch{[HMR]})}\) and prove that the \(x\)-intercept is \(\pKa'\) and the \(y\)-intercept is \(-\pKa'\). 
+
+\subsection{Estimating the Expected Error in the Final Result Based on the Measurement Errors}
+\label{subs:estimating_final_error_based_on_measurement_errors}
+
+You can estimate the upper bound for the expected error in the result by using just one data point and \cref{eq:p_dissoc_const}. 
+Least-squares curve fitting will give a smaller error, since the result is based on multiple trials, but doing the calculation with just one data point will establish an \emph{upper} bound on the final error. 
+The uncertainty in absorbance measurements is \num{\pm0.002} \emph{at best.} 
+Since using the Beer-Lambert Law for calculating concentrations involves multiplication and division, the errors in the concentrations from the absorbances propagate as relative errors (even though we used some matrix tricks in the process). 
+The uncertainty in \pH\ measurements is \num{\pm0.03}, unless extra care is taken. 
+For answering the question ``is the difference between your equilibrium constant and the literature value larger than the technique is capable of?'' only a rough estimation of the expected error is necessary. 
+A complete and precise propagation of errors treatment is unnecessary. 
+You will need to use propagation of errors rules, but focusing only on the major errors with approximate calculations is sufficient. 
+
+\section{Lab Report Guidelines} % (fold)
+\label{sec:lab_report_guidelines}
+
+Your lab report should consist of the following parts:
+\begin{description}
+	\item[Title, Author and Date]
+	\item[Introduction] Describe the experiment and expected results in a few sections. 
+	\item[Experimental Theory] Reference this document, but include the requested derivation requested in the calculations section. In other words, your Theory section should be a reference (\eg, ``please see ``\pKa\ of Methyl Red'' in the CHEM355 Lab Manual for the theory) and a short derivation.
+	\item[Experimental Procedure] This should be a very brief general outline of the procedure, written out as a paragraph or two. Give the make and model for any major instruments you used, as well as any important settings. The description should be thorough enough that another student can repeat your experiments. This means you must provide explicit volumes, weights, and temperatures. Use the past tense in all of your descriptions. Don't just copy the procedure from the manual, state what work \emph{you} performed. 
+	\item[Results and Discussion] This should include an overview of the analyzed data and responses to the questions worked into a natural narrative. 
+	Include your data in a \emph{tabular} format, including all the information necessary to repeat your calculations. 
+	Include all graphs as figures (with captions). 
+	Your graphs should include axes labels (with units). 
+	Any fitted curves should be annotated with equations (slopes, intercepts) and uncertainties for each parameter. 
+	Remember to use propagation of error rules in presenting the standard deviations in the final results. 
+	Comment on the uncertainty in the final results with regard to the following:
+	\begin{enumerate}
+		\item What is the \textbf{predominant random experimental error}? Note that correctible student mistakes are \emph{not} random experimental error. For example, spills or not following instructions produce \emph{systematic} errors, so you should not report them as \emph{random} errors. 
+		\item Which \(\pKa'\) is more accurate, and why?
+		\item Compare your final results to the established literature value (and include a citation). 
+		\item Estimate the expected error in the final result based on the measurement errors. Based on your estimate answer the following question: Is the difference between your equilibrium constant and the literature value larger than the technique is capable of distinguishing? In other words, is there some unaccountable source of error? The error propagation calculation you performed in the Data Analysis section will help you answer this question. 
+	\end{enumerate}
+	Did you find an isosbestic point? Discuss the importance of finding an isosbestic point. 
+	Finally, also discuss the \emph{chemical significance} of the results. 
+	The chemical significance can be addressed in several alternate ways:
+	\begin{itemize}
+		\item State why these results are useful and important, or
+		\item State how this experiment and technique fit into the larger world of chemistry, or
+		\item Discuss why someone might need to perform a study of this type.
+	\end{itemize}
+	\item[References] Include any external material you incorporated into this report. 
+	\item[Appendix] At the very end of your report, include examples of any calculations that you did by hand. 
+	Include any additional files and code that you used to generate your graphs.
+\end{description}

@@ -1,0 +1,67 @@
+\documentclass{standalone}
+\usepackage{pgfplots,pgfplotstable,amsmath,chemmacros}
+% \usepackage{array}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{math,arrows.meta}
+
+\begin{document}
+
+\newcommand{\vertLineFromPoint}[2]{
+  \draw[loosely dashed] 
+	(#1) -- (#1|-{0,\pgfkeysvalueof{/pgfplots/ymin}}) node [pos=1,below] {#2}
+}
+
+\pgfplotsset{
+  height = 0.55\textwidth,
+  width = 0.90\textwidth,
+  scale only axis,
+}
+\pgfplotstableset{col sep=comma}
+
+
+
+\pgfplotstableset{
+	create on use/total/.style={
+		create col/expr={\thisrow{acidic}+\thisrow{basic2}}}
+}
+
+\pgfplotstableread{figures/methyl_red_subspectra.csv}\datatable
+
+\begin{tikzpicture}
+	\begin{axis}[
+	clip=false,
+	axis lines=left,
+	no markers,
+	legend entries={Total,\ch{HMR},\ch{MR^{-}}},
+	% xtick={350,450,...,650},
+	% ytick={0,0.22,0.44,.66},
+	% scaled y ticks=base 10:-3,
+	% yticklabels={0,20,40,60},
+	ticks=none,
+	xlabel={$\lambda$ (nm)},
+	xlabel shift=2.5ex,
+	ylabel={$\varepsilon$ (\unit{\per\Molar\per\cm})},
+	xmin=350,xmax=650,
+	ymin=-.01,ymax=0.67]
+	
+		\addplot [smooth,thick,violet]
+			table [columns/new/.style={column name=total}, x=lambda, y=total] {\datatable}
+			node [pos=0.74] (eps1) {}
+			node [pos=0.42] (eps2) {};
+			
+		\vertLineFromPoint{eps1}{$\lambda_1$};
+		\vertLineFromPoint{eps2}{$\lambda_2$};
+		
+		\addplot [smooth,thick,dashed,blue]
+			table [x=lambda, y=acidic] {\datatable}
+			node [pos=0.74,above left] (eps1a) {$\varepsilon_{1,\ch{HMR}}$}
+			node [pos=0.42,below,fill=white,yshift=-2.2ex,xshift=0.7em] (eps2a) {$\varepsilon_{2,\ch{HMR}}$};
+		\addplot [smooth,very thick,dotted,red]
+			table [x=lambda, y=basic2] {\datatable}
+			node [pos=0.74,above right] (eps1b) {$\varepsilon_{1,\ch{MR^{-}}}$}
+			node [pos=0.42,above right] (eps2b) {$\varepsilon_{2,\ch{MR^{-}}}$};
+		
+	\end{axis}
+\end{tikzpicture}
+
+\end{document}

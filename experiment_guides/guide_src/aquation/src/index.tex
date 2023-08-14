@@ -1,0 +1,258 @@
+\maketitle
+
+\begin{abstract}
+\noindent This experiment is designed to determine the order, rate constant, activation energy, and pre-exponential factor for the ligand exchange reaction of a water for a chloride ion in \iupac{\trans-dichlorobis(ethylenediamine)cobalt(III)} ion.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+There are two questions of general importance when considering all chemical reactions. The first question concerns the feasibility of carrying out a reaction, that is determining the equilibrium position of a reaction. Chemical thermodynamics deals with the position of equilibrium. The second question concerns how fast the equilibrium position is established. This area is called chemical kinetics. Together the questions are: how far and how fast?
+
+Numerous rules and concepts can aid the prediction of whether a particular reaction will occur (thermodynamic considerations). Some of the following are used in the study of chemistry: activity series, rules of exchange reactions, equilibrium constants, solubility product constants, oxidation-reduction potentials, and free energies of reactions.
+
+However, the prediction of how fast a chemical reaction will occur is much more difficult. The ultimate factor controlling the rate of reaction involves the mechanism of reaction, which involves a detailed time picture of exactly how the molecules and atoms are interacting during the course of the reaction.
+
+\subsection{The Rate Expression}
+\label{sub:rate_expr}
+The rate expression for a chemical reaction is based on data obtained from a kinetic study
+conducted in the laboratory. From the experimental rate expression, a detailed mechanism for the reaction can be developed. In general, the rate of a chemical reaction
+\begin{equation}
+	\ch{\(a\)A + \(b\)B ->  \(p\)P}
+	\label{eq:model_rxn}
+\end{equation}
+will be given by
+\begin{equation}
+	v = -\frac{1}{a}\odv{\ch{[A]}}{t} = -\frac{1}{b}\odv{\ch{[B]}}{t} = \frac{1}{p}\odv{\ch{[P]}}{t}
+	\label{eq:rxn_rate}
+\end{equation}
+where the brackets refer to concentrations, generally given in \unit{\mole\per\liter}. The rate expression frequently has the form
+\begin{equation}
+	v = k \ch{[A]}^n \ch{[B]}^m
+	\label{eq:rate_alt_form}
+\end{equation}
+where \(v\) is the reaction rate, \(k\) is the rate constant, \ch{[A]} is the concentration of \ch{A} and \ch{[B]} is the concentration of \ch{B} in \unit{\mole\per\liter} and \(n\) and \(m\) are exponents called the reaction orders. 
+There is no necessary relation between the values of the exponents \(n\) and \(m\) and the coefficients \(a\) and \(b\) in \cref{eq:model_rxn}. 
+This situation exists because the chemical equation gives no information about the mechanism of the reaction and the values of \(n\) and \(m\) depend on the mechanism. 
+For example, the transformation of \ch{A + B} into products may proceed via more than one step.
+
+In this experiment the rate expression for a chemical reaction will be determined, as well as the temperature dependence of the rate constant.
+
+\subsection{First-Order Rate Expression}
+\label{subs:first-order_rate_expr}
+One of the simplest types of rate expression is first-order in one of the reactants:
+\begin{equation}
+	v = -\odv{\ch{[A]}}{t} = k \ch{[A]}
+	\label{eq:first-ord_rate}
+\end{equation}
+For \cref{eq:model_rxn}, this would be the case if \(n = 1\) and \(m = 0\) or if \(\ch{[B]}^m\) is kept constant and included in \(k\). 
+This could be done experimentally by having \ch{B} in great excess, in which case, the overall concentration change of \ch{B} during the course of the reaction would be negligible. The process is then said to be first-order in \ch{A}. 
+The integrated rate expression is,
+\begin{equation}
+	\ln{\frac{\ch{[A]}}{\ch{[A]_0}}} = -k t \qquad \text{or} \qquad \ln{\ch{[A]}} = -k t + \ln{\ch{[A]_0}}
+	\label{eq:fo_int_rate}
+\end{equation}
+where \ch{[A]_0} is the initial concentration \ch{A} at time zero and \ch{[A]} is the concentration at any time, \(t\). 
+The half-life of a chemical reaction is the time required for one half of the reactant that was present at the start of a given time period to react. 
+A first-order reaction has a constant half-life, \(t_{1⁄2}\) since:
+\begin{equation}
+	\ln{\frac{\ch{[A]_{0}}/2}{\ch{[A]_{0}}}} = - \ln{2} = - k t_{1/2} \qquad \text{or} \qquad t_{1/2} = \frac{0.693}{k}
+	\label{eq:fo_half_life}
+\end{equation}
+
+\subsection{Second-Order Rate Expression}
+\label{subs:second-order_rate_expr}
+
+If \(n=2\) and \(m=0\) or \(\ch{[B]}^m\) is held constant in \cref{eq:rate_alt_form}, 
+\begin{equation}
+	v = -\odv{\ch{[A]}}{t} = k \ch{[A]}^2
+	\label{eq:sec-ord_rate}
+\end{equation}
+the reaction is second-order in \ch{A} and integration of \cref{eq:sec-ord_rate} gives:
+\begin{equation}
+	\frac{1}{\ch{[A]}} - \frac{1}{\ch{[A]_0}} = k t
+	\label{eq:so_int_rate}
+\end{equation}
+The half-life for a second-order reaction is found from 
+\begin{equation}
+	\frac{1}{\ch{[A]_0}/2} - \frac{1}{\ch{[A]_0}} = k t_{1/2} \qquad \text{or} \qquad t_{1/2} = \frac{1}{k \ch{[A]_0}}
+	\label{eq:so_half_life}
+\end{equation}
+
+\subsection{Determining the Reaction Order}
+\label{subs:determining_reaction_order}
+
+To determine the order of a reaction, concentration versus time measurements are collected in the laboratory and the data are plotted. 
+According to \cref{eq:fo_int_rate}, in the case of a first-order reaction, a plot of \(\ln\br{\ch{[A]}/\ch{[A]_0}}\) versus \(t\) should be well-fit by a straight line. 
+In the case of a second-order reaction, by \cref{eq:so_int_rate},  a plot of \(1/\ch{[A]}\) versus \(t\) should be well-fit by a straight line. 
+\sidenote{We apply transforms to data to make data linear for fitting. If a set of transforms results in a linear data set, that suggests a certain type of model fits the data. This transformation step isn't strictly necessary, as we can use computers to fit non-linear models, but linear fits are still the least-computationally expensive calculations to run.}
+
+\subsection{The Reaction to be Studied}
+\label{subs:reaction_to_be_studied}
+
+The ion \iupac{\trans-dichlorobis(ethylenediamine)cobalt(III)}, \ch{Co(en)2Cl2+}, is a complex ion that forms a green solution when dissolved in water. 
+Ethylenediamine, here denoted as ``en'', is \ch{H2N-CH2-CH2-NH2}. Ethylenediamine is a bidentate ligand, which means the cobalt ion in this complex has a coordination number of six. 
+In solution, a water molecule may replace one of the \ch{Cl-} ions in this complex, giving a mixture of \iupac{\cis-} and \iupac{\trans-}\ch{Co(en)2ClH2O^{2+}}, which forms a pink solution. 
+The purpose of this experiment is to investigate the kinetics of this aquation reaction:
+\begin{equation}
+	\begin{aligned}[t]
+	&\ch{Co(en)2Cl2+ + H2O} 	&\ch{->}	& \ch{Co(en)2ClH2O^{2+} + Cl-}& \\
+	&\text{(dichloro, green)}	&			& \text{(chloro-aqua, pink)}&
+	\end{aligned}
+	\label{rxn:cis-trans_cobalt}
+\end{equation} 
+The forward reaction may be expressed by the rate law
+\begin{equation}
+	- \odv{\ch{[Co(en)2Cl2^+]}}{t} = k \ch{[Co(en)2Cl2^+]}^n
+	\label{eq:Co_rate_law}
+\end{equation}
+where \(k\) is the rate constant and \(n\) is the apparent order of the reaction. 
+One might expect the concentration of \ch{H2O} to enter into the rate expression. 
+Since this experiment is done in dilute aqueous solution, the concentration of water is large (\qty{55}{\Molar}), and very nearly constant, so any dependence on \ch{[H2O]} is incorporated into the constant \(k\). 
+The reverse reaction can be disregarded under the conditions in this laboratory. 
+
+\begin{figure}[htb]
+	\input{figures/sample_spectra.tex}
+	\caption{Spectra of the cobalt compounds under investigation. The pink trace (dotted line) is \ch{Co(en)2(H2O)Cl^{2+}}, which absorbs strongly in the green region. The green trace (dashed line) is \ch{Co(en)2Cl2^{+}}, which absorbs strongly in the red and blue regions. The purple trace is an aqueous mixture of the two species in equal concentration.}
+	\label{fig:co_spectra}
+\end{figure}	
+
+\subsection{Absorbance Measurements}
+\label{subs:absorbance_measurements}
+
+The progress of the reaction is observed spectrophotometrically. The absorbance spectra of the dichloro and chloro-aqua complexes and a mixture of the two is shown in \cref{fig:co_spectra}. 
+
+The concentrations of dichloro, \ch{[M-Cl]}, and chloro-aqua, \ch{[M-H2O]}, forms are related to the absorbance, \(A\), by the Beer-Lambert law. The absorbance of the solution is the sum of the absorbances of the two species: 
+\begin{equation}
+	A = A_{\ch{M-Cl}} + A_{\ch{M-H2O}}
+	\label{eq:mixture_abs}
+\end{equation}
+Where the absorbance of each species is:
+\begin{equation}
+	A_{i} = \varepsilon_{i} \ell c_{i}
+	\label{eq:beer-lambert_law}
+\end{equation}
+where \(A_{i}\) is the absorbance of compound \(i\), \(\varepsilon\) is the molar absorptivity of compound \(i\), \(\ell\) is the optical path length within the solution in \unit{\cm},  and \(c_{i}\) is the concentration of compound \(i\). 
+Within the visible region, the spectra of the dichloro and chloro-aqua forms are distinctly different, but there is not a single maximum, free from overlap with other absorptions, that may be used for spectrophotometric analysis. 
+To be able to follow the reaction progress at one wavelength, the following property of the stoichiometry of the reaction is used:
+\begin{equation}
+	\ch{[M-H2O]} = \ch{[M-Cl]_0} - \ch{[M-Cl]}
+	\label{eq:stoichiometric_conservation}
+\end{equation}
+From \cref{eq:mixture_abs,eq:stoichiometric_conservation}, the following relation can be derived:
+\begin{equation}
+	\frac{\ch{[M-Cl]}}{\ch{[M-Cl]_0}} = \frac{A_t - A_\infty}{A_0 - A_\infty}
+	\label{eq:conversion_fraction}
+\end{equation}
+where \ch{[M-Cl]} is the concentration at time \(t\), \ch{[M-Cl]_0} is the concentration at time \(t=0\), \(A_t\) is the absorbance at time \(t\), \(A_0\) is the absorbance at time \(t=0\), and \(A_\infty\) is the absorbance after the reaction has gone to completion. 
+Absorbances are for the reaction mixture composed of dishloro and chloro-aqua forms in solution. 
+
+\Cref{eq:conversion_fraction} eliminates the necessity of dtermining molar absorption coefficients and possible error in the initial concentration of the dichloro compoint resulting from the initiation of the reaction before the sample completely dissolves. 
+Plots of \(\ln{\ch{[M-Cl]}/\ch{[M-Cl]_0}}\) or alternatively \(({\ch{[M-Cl]}/\ch{[M-Cl]_0}})^{-1}\)  will verify the reaction order. 
+
+\subsection{Determination of the Activation Energy}
+\label{subs:determination_of_activation_energy}
+
+The second part of the exercise is the determination of the activation energy of the reaction. 
+The rate constant fro the reaction is related to the energy of activation, \(E_a\), by the Arrhenius equation, 
+\begin{equation}
+	k = A \exp{\frac{-E_a}{RT}}
+	\label{eq:arrhenius}
+\end{equation}
+where \(A\), the pre-exponential factor, is a constant characteristic of the reaction, \(R\) is the gas constant in \unit{\joule\per\mole\kelvin}, and \(T\) is the reaction temperature in \unit{\kelvin}. 
+By taking the logarithm of both sides, we obtain:
+\begin{equation}
+	\ln{k} = \frac{-E_a}{R} \frac{1}{T} + \ln{A}
+	\label{eq:arrhenius_linear}
+\end{equation}
+Thus if you determine the rate constant for the aquation of \iupac{\trans-\ch{Co(en)2Cl2^+}} at several different temperatures, you can create a plot of \(\ln{k}\) versus \(1/T\). 
+A straight line drawn through the points should have a slope of \(-E_a/R\) and a determination of the slope permits a calculation of \(E_a\). 
+The intercept is used to calculate the pre-exponential factor. 
+
+Because the rate constant can be readily calculated from the half-life, \(t_{1/2} = (\ln{2}) / k\), a determination of the half-life is equivalent to a determination of the rate constant. 
+\todo{In procedure/analysis section: ``Show that a plot of \(\ln{t_{1/2}}\) versus \(1/T\) would have a slope of \(E_a/R\). Also determine the relationship of the pre-exponential factor to the intercept of this plot. The experimental procedure is to determine the half-life for several different temperatures.}
+
+\section{Safety Precautions}
+\label{sec:safety}
+
+\begin{itemize}
+	\item Dichlorobis(ethylenediamine)cobalt(III) chloride can cause severe eye and respiratory irritation. Care should be taken while handling the solid compound or solutions containing it. Gloves and safety glasses should be used while handling all chemicals. 
+\end{itemize}
+
+\section{Procedure}
+\label{sec:procedure}
+
+\subsection{Required Equipment}
+\label{subs:req_equip}
+
+\begin{itemize}
+	\item 
+\end{itemize}
+
+\subsection{Obtaining UV/Vis Absorption Spectra of the Reactant and Product}
+
+The instructions for using the spectrometer are available in the labs.\todo{Should make brief instructions for using the UV/Vis spectrometers. Need info on wavelength scan, how to export data.} The \ch{Co(en)2Cl2^+} complex is available as the chloride salt, \ch{[Co(en)2Cl2]Cl}. Determine the spectrum of a fresh, cold, dilute solution of \ch{Co(en)2Cl2^+} (ensure the water is cold before mixing with the solid complex to delay hydrolysis). Determine the spectrum of a hydrolyzed solution, which is \ch{Co(en)2(H2O)Cl^{2+}}. The concentration is not important to determine the spectra. Choose and appropriate wavelength for the analysis by referencing your spectra and \cref{fig:co_spectra}. 
+
+\subsection{Determining the Reaction Order} 
+
+A time-course kinetic run will be done using the spectrometer set to the wavelength you chose. Since both of the complexes in the reaction absorb throughout the visible region, the absorbance remains rather high during the entire course of the reaction. To yield better accuracy and precision in your measurements, it is best to use the initial solution at time zero to set the \qty{100}{\percent} rather than a pure water blank. This procedure will expand the scale of the spectrophotometer. 
+
+A suitable initial concentration range for the kinetic runs is \qtyrange{0.01}{0.015}{\Molar}. 
+Make sure to do all solution preparation calculations prior to arriving at lab. 
+Measure absorbance versus time data for the hydration at \qty{55}{\celsius} in a thermostated bath. 
+Use a test tube clamped in the bath for a reaction vessel.
+Use a volume of \qty{25}{\mL}. Before adding the complex to the test tube, ensure sure the water in the tube is at the bath temperature. 
+Take aliquots from the solution in the water bath and determine the absorbance in the spectrophotometer every \qtyrange{1}{2}{\minute}. 
+Return the aliquot to the test tube in the bath so you don't run out of solution. 
+
+\subsection{Determination of the Activation Energy}
+
+The half-life of the reaction may be measured without the use of a spectrophotometer by comparing the color of the reaction to a reference made from a \(1{:}1\) mixture of the unhydrolyzed dichloro complex and the hydrolyzed chloro-aqua complex. 
+This color reference is possible since, at temperatures close to \qty{0}{\celsius}, a water solution of \ch{Co(en)2Cl2^+} undergoes no appreciable aquation. 
+A solution of the hydrolyzed chloro-aqua complex can be easily prepared by placing a solution of the dichloro complex in a beaker of hot water for \qtyrange{5}{10}{\minute} or by using the final solution  produced while analyzing the reaction order. 
+The design of the experiment is up to you. 
+You are to determine the activation energy and the pre-exponential factor. 
+This determination will probably require measurements at approximately five different temperatures. 
+A suitable temperature range for the rate measurements is \qtyrange{\sim 50}{85}{\celsius}. 
+Make sure the concentrations in each run match your color reference fairly accurately (\qty{\pm3}{\percent}). 
+Do the initial concentrations for each run need to be exactly the same?
+It is essential that strict temperature control be maintained: place a water-filled test tube in a heated water bath and allow it to reach the temperature of the bath \emph{before} adding the \ch{[Co(en)2Cl2]Cl}. 
+
+\section{Data Analysis}
+\label{sec:data_analysis}
+
+Plot the data as discussed above, determine the reaction order, and calculate the rate constant. 
+Include both your first-order and second-order plot. 
+Use least-squares curve fitting to determine the slope, rate constant, and the uncertainty in the rate constant.\todo{Give brief Python instructions for how to do do this.}
+Show (mathematically) that a plot of \(\ln{t_{1/2}}\) versus \(1/T\) would have a slope of \(E_a/R\). 
+Also determine the relationship of the pre-exponential factor to the intercept of this plot. 
+The experimental procedure is to determine the half-life for several different temperatures.
+
+\section{Lab Report Guidelines} % (fold)
+\label{sec:lab_report_guidelines}
+
+Your lab report should consist of the following parts:
+\begin{description}
+	\item[Title, Author and Date]
+	\item[Introduction] Describe the experiment and expected results in a few sections. 
+	\item[Experimental Procedure] This should be a very brief general outline of the procedure, written out as a paragraph or two. Give the make and model for any major instruments you used, as well as any important settings.
+	\item[Experimental Theory] Reference this document, but include the requested derivation that begins with \cref{eq:arrhenius_linear}; show that a plot of \(\ln{t_{1/2}}\) versus \(1/T\) would have a slope of \(E_a/R\), and determine the relationship of the pre-exponential factor to the intercept of the plot. 
+	\item[Results and Discussion] This should include an overview of the analyzed data and responses to the questions worked into a natural narrative. 
+	Include your data in a \emph{tabular} format, including all the information necessary to repeat your calculations. 
+	Include all three graphs as figures (with captions). 
+	Report the order of the reaction, the rate constant (at \qty{55}{\celsius}), the activation energy, and the pre-exponential factor. 
+	Include any slopes and intercepts determined by curve fitting \emph{and the calculated uncertainties.} 
+	Remember to use propagation of error rules in presenting the standard deviations in the final results. 
+	Discuss the \emph{chemical significance} of the results; in other words, state why these results are useful and important. 
+	Discuss why someone might need to perform a study of this type. 
+	Are the results for this system unusual, or do they fall within the normal range of similar results for other systems?
+	Answer the question in the procedure section at the end of \emph{Determining the Activation Energy} (about concentrations for each run). 
+	\item[References] Include any external material you incorporated into this report. 
+	\item[Appendix] At the very end of your report, include examples of any calculations that you did by hand. 
+	Include any additional files and code that you used to generate your graphs.
+\end{description}
+ 
+ 
+ \section{Alternate Work}
+ 
+ If the \iupac{\cis-} complex is available, the kinetics of the \iupac{\cis-\trans} isomerization may be studied in methanol solution. 
+ Conditions and procedures, mentioned above, maybe used for the \iupac{\cis-\trans} isomerization as well. 

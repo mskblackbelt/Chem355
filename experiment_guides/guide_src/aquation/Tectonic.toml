@@ -1,0 +1,9 @@
+[doc]
+name = "The Kinetics of Aquation of the trans-Dichlorobis(ethylenediamine)-Cobalt(III) Ion"
+bundle = "https://data1.fullyjustified.net/tlextras-2022.0r0.tar"
+
+[[output]]
+name = "aquation_kinetics"
+type = "pdf"
+shell_escape = true
+shell_escape_cwd = ".."
