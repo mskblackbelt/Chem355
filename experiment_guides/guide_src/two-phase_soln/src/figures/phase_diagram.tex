@@ -1,8 +1,7 @@
 \documentclass{standalone}
-\usepackage{pgfplots,pgfplotstable,amsmath}
+\usepackage{pgfplots,amsmath}
 \pgfplotsset{compat=1.18}
 \usetikzlibrary{math,arrows.meta}
-\usepgfplotslibrary{fillbetween}
 
 \begin{document}
 
@@ -12,92 +11,49 @@
   width = 0.9\textwidth,
   scale only axis,
 }
-\pgfplotstableset{col sep=comma}
 
-% Data created via http://www.vle-calc.com/phase_diagram.html
-\pgfplotstableread{figures/phase_diagram_methanol.csv}\metable
-\pgfplotstableread{figures/phase_diagram_ethanol.csv}\ettable
-\pgfplotstableread{figures/phase_diagram_p_t1.csv}\Tatable
-\pgfplotstableread{figures/phase_diagram_p_t2.csv}\Tbtable
-\pgfplotstableread{figures/phase_diagram_t_p1.csv}\ptable
+\newcommand{\vertLineFromPoint}[1]{
+  \draw[dashed] 
+	(#1) -- (#1|-{0,\pgfkeysvalueof{/pgfplots/ymin}})
+}
 
 \begin{tikzpicture}
 	\begin{axis}[
-	clip=false,
-	axis lines=box,
-	xtick={0,1},
-	xticklabels={$A$,$B$},
-	ytick={50,80},
-	yticklabel shift=5,
-	ztick={0,1.01},
-	zticklabels={0,1},
-	zticklabel shift=5,
-	xlabel style={sloped like x axis},
-	ylabel style={sloped like y axis},
-	zlabel shift={5},
-	xmin=0, xmax=1, 
-	ymin=50, ymax=80,
-	zmin=0, zmax=1.01,
-	view/h=30,
-	plot box ratio=1 1.5 0.8,
-	3d box=complete]
-	% Plot p-T lines for each compound
-	\addplot3+ [mark=none,smooth,thick,
-				y filter/.expression={y<50 || y>80 ? nan : y}] 
-		table [x=xB, y=Temperature, z=Pressure] {\metable};
-	% \addlegendentry{methanol};
-	\addplot3+ [mark=none,smooth,thick,
-				y filter/.expression={y<50 || y>80 ? nan : y}] 
-		table [x=xB, y=Temperature, z=Pressure] {\ettable};
-	% \addlegendentry{ethanol};
+	clip=true,
+	xtick={1},
+	xticklabels={$T_c$},
+	xmin=-0.1, xmax=1.1, 
+	ymin=-1.1, ymax=1.1,
+	]
 	
-	% Plot L/V regions for isobaric and isothermal planes
-	% Isothermal plot, 50 °C
-	\addplot3 [name path=tal,mark=none,smooth,thick]
-		table [x=x1, y=Temperature, z=Pressure] {\Tatable}
-		coordinate [pos=0] (pa0)
-		coordinate [pos=1] (pb0)
-		node [above,pos=0.37,yshift=5] {$L$};
-	\addplot3 [name path=tag,mark=none,smooth,thick]
-		table [x=y1, y=Temperature, z=Pressure] {\Tatable}
-		node [below,pos=0.37] {$V$}
-		node [below left, pos=0] {$p_A^0$}
-		node [below right, pos=1] {$p_B^0$};
-	\addplot3 [gray] fill between [of=tal and tag];
+	\addplot [mark=none,smooth,thick] coordinates {
+				(0.0, 	-1.0)
+				(0.19, 	-0.9)
+				(0.36, 	-0.8)
+				(0.4375, -0.75)
+				(0.51, 	-0.7)
+				(0.64,	-0.6)
+				(0.75,	-0.5)
+				(0.84, 	-0.4)
+				(0.91, 	-0.3)
+				(0.9375, -0.25)
+				(0.96, 	-0.2)
+				(.99,	-0.1)
+				(1.0, 	0.0) 
+				(.99,	0.1)
+				(0.96, 	0.2)
+				(0.9375, 0.25)
+				(0.91, 	0.3)
+				(0.84, 	0.4)
+				(0.75,	0.5)
+				(0.64,	0.6)
+				(0.51, 	0.7)
+				(0.4375, 0.75)
+				(0.36, 	0.8)
+				(0.19, 	0.9)
+				(0, 	1)};	
 	
-	% Dashed line annotations on T_1 plot
-	% Reference data point for p: 50.0,0.41103,0.45,0.605132
-	\draw [dashed] (0,50,0.41103) node [left] {$p_1$} -- (0.605132,50,0.41103) -- (0.605132,50,0) node [below] {$X_{BV}^0$};
-	\draw [dashed] (0.45,50,0.41103) -- (0.45,50,0) node [below] {$X_{BL}^0$};
-	% Pressure values for p_A^0, p_B^0
-	\draw [dashed] (0,50,0) -- (pb0) node [pos=0.8,below right] {$p_A$};
-	\draw [dashed] (pa0) -- (1,50,0) node [pos=0.8,above right] {$p_B$};
-	
-	% Isothermal plot, 80 °C
-	\addplot3 [name path=tbl,mark=none,smooth,thick]
-		table [x=x1, y=Temperature, z=Pressure] {\Tbtable}
-		node [above,pos=0.20] {$L$};
-	\addplot3 [name path=tbg,mark=none,smooth,thick]
-		table [x=y1, y=Temperature, z=Pressure] {\Tbtable}
-		node [below,pos=0.20] {$V$}
-		node [above, pos=0] {$p_A^{0\prime}$}
-		node [above, pos=1] {$p_B^{0\prime}$};
-	\addplot3 [gray] fill between [of=tbl and tbg];
-	
-	% Isobaric plot, 1.01 bar/1 atm
-	\addplot3 [name path=pl,mark=none,smooth,thick]
-		table [x=x1, y=Temperature, z=Pressure] {\ptable}
-		node [below left,pos=0.6] {$L^*$};
-	\addplot3 [name path=pg,mark=none,smooth,thick]
-		table [x=y1, y=Temperature, z=Pressure] {\ptable}
-		node [above right,pos=0.5] {$V^*$}
-		node [above left, pos=0] {$T_A^{0}$}
-		node [below right, pos=1] {$T_B^{0}$};;
-	\addplot3 [gray] fill between [of=pl and pg];
-	
-	\draw [-Latex] (0.05,50,1.8) -- (0.17,50,1.8) node [right] {$X_B$};
-	\draw [-Latex] (0.05,50,1.8) -- (0.05,55,1.8) node [above right,yshift=-5] {$T$ (°C)};
-	\draw [-Latex] (0.05,50,1.8) -- (0.05,50,2.0) node [above] {$p$ (atm)};
+	\draw [dashed] (1.0, 0.0) -- (1.0, -1.1);		
 	
 	\end{axis}
 \end{tikzpicture}
