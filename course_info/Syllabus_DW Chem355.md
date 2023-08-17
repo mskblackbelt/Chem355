@@ -5,6 +5,11 @@ author: Dustin Wheeler
 semester: Fall 2023
 left-foot: Chem 357, Fall 2023
 ---
+TODO: 
+- Work in pairs?
+- Pre-lab: requirement, description of content
+- Signed data and clean up at end of each lab (-5 pts)
+- Safety training? 
 
 # Physical Chemistry Laboratory I
 
@@ -19,12 +24,14 @@ Email: <dustin.wheeler@hunter.cuny.edu>
 Course goal
 : Chemistry 355 is a laboratory course in physical chemistry. By the end of this course, you will have experience with a variety of instrumental and computational techniques designed to help you understand fundamental processes related to thermodynamics and kinetics.
 
-: This course is intended to help you grow as a scientist by: 1. exposing you to a variety of chemical modeling and characterization techniques, and 2. developing your reasoning and critical thinking skills for better problem solving.
+: This course is intended to help you grow as a scientist by  
+	1. exposing you to a variety of chemical modeling and characterization techniques, and 
+	2. developing your reasoning and critical thinking skills for better problem solving.
 
 Course Materials
 : **Required:** One carbon copy laboratory notebook (available in the Hunter College bookstore). A USB flash storage drive will be necessary to retrieve data from various instrumentation.
 
-: There is no textbook for this course. I will provide handouts or post the relevant material on Blackboard for you. You should print out each lab and _must_ complete a summary of the lab procedure in your notebook before you come to class.
+: There is no textbook for this course. I will provide handouts or post the relevant material on the course page for you. You should print out each lab and _must_ complete a summary of the lab procedure in your notebook before you come to class.
 
 : If you are interested in purchasing a physical laboratory book (entirely optional), many of our experiments will be modified from the standard physical chemistry laboratory lab manual by Garland, Nibler, and Shoemaker: _Experiments in Physical Chemistry,_ 9th Ed., 2014, McGraw-Hill, New York, NY. Used copies of the 7th and 8th edition are often available for a reasonable price and contain nearly the same information.
 
