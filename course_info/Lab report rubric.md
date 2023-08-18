@@ -1,4 +1,4 @@
-#### Lab Report Grading Rubric
+### Lab Report Grading Rubric
 
 | Points | Section                   | Summary | Report |
 | -----: | :------------------------ | :-----: | :----: |
