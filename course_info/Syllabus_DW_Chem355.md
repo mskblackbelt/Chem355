@@ -1,9 +1,9 @@
 ---
 title: Course Syllabus
-course: Chemistry 357
+course: Chemistry 355
 author: Dustin Wheeler
 semester: Fall 2023
-left-foot: Chem 357, Fall 2023
+left-foot: Chem 355, Fall 2023
 ---
 
 # Physical Chemistry Laboratory I
@@ -12,8 +12,8 @@ left-foot: Chem 357, Fall 2023
 
 Course Information
 : 
-Class time:  Monday/Thursday, 1:30pm--2:20pm  
-Class location: North Building, 1412B
+Class time:  Tuesday, 9:30am--12:20pm
+Class location: North Building, 1412B  
 Course webpage: [Microsoft Teams][teams-link] (Teams join code: **8jykqnn**)  
 
 Instructor
@@ -64,7 +64,7 @@ Complete the safety training linked below and email the certificate to me before
 Grading
 : Your grade for this course will be based on the following factors:
 : 
-- Attendance and participation in every laboratory period. You will work in groups of two on all experiments, your partner will remain the same all semester. (**30%** of semester grade) 
+- Attendance and participation in every laboratory period. You will work in groups of two on all experiments; your partner will remain the same all semester. (**30%** of semester grade) 
 - Practice exercises for lab-related skills, graded for completion (**15%** of semester grade)
 - Summaries for four lab exercises, details given below. (**15%** of semester grade) 
 - Written lab reports for two labs, details given below. (**30%** of semester grade) 
@@ -72,7 +72,7 @@ Grading
 
 : Pre-lab preparation is worth 10 points of the grade for each summary or report. At the end of each lab period, you will be required to clean up your work and submit your notebook to the instructor for sign-off. Failure to do either of these will result in a loss of participation points for the lab and 10 points from the submitted report or summary. 
 
-: Summaries are due *one* week after the completion of the lab, while full reports are due *two* weeks after completing the lab. 
+: Summaries are due *one week* after the completion of the lab, while full reports are due *two weeks* after completing the lab. 
 
 : The table below shows which sections should be included in each assignment and how many points each section is worth.
 
