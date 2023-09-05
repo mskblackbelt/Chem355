@@ -24,7 +24,7 @@ Office hours: By appointment only, in person or remote
 Email: <dustin.wheeler@hunter.cuny.edu>
 
 
-Course goal
+Course Description
 : Chemistry 355 is a laboratory course in physical chemistry. By the end of this course, you will have experience with a variety of instrumental and computational techniques designed to help you understand fundamental processes related to thermodynamics and kinetics.
 
 : This course is intended to help you grow as a scientist by  
