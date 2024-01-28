@@ -9,4 +9,143 @@
 	notcategory=cited,%
 	]
 
+
+\section{Appendix}
+\label{sec:appendix}
+
+\subsection{Multiple Samples}
+\label{subs:multiple_samples}
+
+Suppose we have three samples, denoted as \numlist{1;2;3}. 
+As before, we represent the components as \emph{A} and \emph{B}, but now we denote the two phases as upper, \emph{u}, and lower, \emph{l}. 
+The total mass of \emph{A} in each of the three samples is 
+\begin{align*}
+  m_{A1} & = d_{Au} V_{u1} + d_{Al} V_{l1} \\
+  m_{A2} & = d_{Au} V_{u2} + d_{Al} V_{l2} \\
+  m_{A3} & = d_{Au} V_{u3} + d_{Al} V_{l3}
+  \label{eq:three_samples}
+\end{align*}
+In general, for the \emph{i}th sample, 
+\begin{equation}
+  m_{Ai} = d_{Au} V_{ui} + d_{Al} V_{li} = d_{Au} (V_\text{tot} - V_{li}) + D_{Al} V_{li} \, ,
+  \label{eq:ith_sample}
+\end{equation}
+or
+\begin{equation}
+  \frac{m_{Ai}}{V_\text{tot}} = d_{Au} \br{1 - \frac{V_{li}}{V_\text{tot}}} + d_{Al} \frac{V_{li}}{V_\text{tot}} \, .
+\end{equation}
+This equation can be rearranged to give 
+\begin{equation}
+  \frac{m_{Ai}}{V_\text{tot}} = \br{d_{Al} - d_{Au}} \br{\frac{V_{li}}{V_\text{tot}}} + d_{Au} \, .
+  \label{eq:scaled_ith_sample}
+\end{equation}
+A plot of \(m_{Ai}/V_\text{tot}\) versus \(V_{li}/V_\text{tot}\), where, in this instance, \(i =\) \numlist{1;2;3}, should be linear, and you can obtain the equilibrium mass densities of \emph{A} in the two phases from the lope and intercept. 
+A similar approach is used with respect to component \emph{B}. 
+
+\subsection{Optimizing the System}
+\label{subs:optimizin_the_system}
+
+Refer to \cref{fig:two_samples_b}, which shows a set of complementary solutions of \emph{A} and \emph{B} at the same temperature and pressure. 
+
+Thus, if \(V_1' = V\) and \(V_2' = kV\), then \(V_1 = kV\) and \(V_2 = V\). 
+\(k\) is the equilibrium volume ration in the complementary samples and is greater than \num{1} in the example illustrated in \cref{fig:two_samples_b}. 
+Moreover, the subscripts \numlist{1;2} denote, respectively, the lower and upper phases. 
+The material balance for component \emph{A} in \emph{each} sample is 
+\begin{equation}
+\begin{aligned}
+  m_A  &= d_{A1} k V + d_{A2} V \, , \\
+  m_A' &= d_{A1} V + d_{A2} k V \, . 
+\end{aligned}
+\label{eq:mat_balance}
+\end{equation}
+A similar set of equations can be written for component \emph{B}. 
+The composition of \emph{A} in phase \num{1} can be conveniently expressed using determinants:
+\begin{equation}
+  d_{A1} = 
+    \frac{
+      \left|
+      \begin{matrix}
+        m_A & V \\ m_A' & kV
+      \end{matrix}
+      \right|}
+      {
+      \left|\begin{matrix}
+        kV & V \\ V & kV
+      \end{matrix} 
+      \right|} = 
+    \frac{k m_A - m_A'}{(k^2 - 1)V} \, .
+  \label{eq:composition_a1}
+\end{equation}
+
+\Cref{eq:composition_a1} gives the equilibrium mass-based concentration of \(d_{A1}\) as a function of the experimental measurables \(m_A\), \(m_A'\), and \(V\) and the methodological variable \(k\). 
+Using the propagation of errors expression, the uncertainty in \(d_{A1}\) can be written 
+\begin{equation}
+  u(d_{A1}) = \br{\br{\pdv{d_{A1}}{k}}^2_{m_A,m_A',V} u^2(k) + \br{\pdv{d_{A1}}{m_A}}^2_{m_A',V,k} + \dots,}^{1/2}
+  \label{eq:error_prop}
+\end{equation}
+where the remaining terms deal with the standard uncertainties associated with \(m_A'\) and \(V\). 
+In \cref{eq:error_prop}, all terms but the first arise from intrinsic \emph{experimental} uncertainties beyond our control. 
+Since the first term involves \(k\), the arbitrarily chose volume ratio, its impact on \(u(d_{A1})\)  can be modified (minimized) by careful experimental design. 
+
+The value of \(k\) will be optimal when it yields the \emph{minimum} error in \(d_{A1}\). 
+Thus its optimal value may be determined by setting the coefficient \((\pdv{d_{A1}}/{k})\) equal to zero and solving the resulting equation. 
+In this way, the value of \(k\) for which the measured \(d_{A1}\) is \emph{least} sensitive \((k_\text{opt})\) is obtained; it corresponds to a minimization of the reading error in the meniscuses. 
+Differentiating \cref{eq:error_prop} with respect to \(k\) and equation to zero gives, after simplification, 
+\begin{equation}
+  k^2 - 2k \frac{m_A'}{m_A} + 1 = 0 \, .
+  \label{eq:optimal_k_setup}
+\end{equation}
+The solution of \cref{eq:optimal_k_setup} is 
+\begin{equation}
+  k_\text{opt} = \frac{m_A'}{m_A} \pm \br{\br{\frac{m_A'}{m_A}}^2 - 1}^{1/2}
+  \label{eq:optimal_k_1}
+\end{equation}
+or, rearranging \cref{eq:optimal_k_1}
+\begin{equation}
+  \br{\frac{m_A'}{m_A}}_\text{opt} = \frac{k^2 + 1}{2k} \, .
+  \label{eq:optimal_k}
+\end{equation}
+\Cref{eq:optimal_k} provides a value of the optimal \emph{volume} ratio \(k\) in terms of the mass ratio of one component, \(A\), in the two complementary samples.\sidenote{Note that according to the initial premise, \(k > 1\) and thus \cref{eq:optimal_k} requires that \(m_A' > m_A\); moreover, the positive root in that equation must be used. 
+If in reality, however, \(m_A' < m_A\), \cref{eq:optimal_k_1,eq:optimal_k} are physically meaningless. 
+In this case, the optimization relates instead to \(d_{A2}\).}
+
+The result in \cref{eq:optimal_k} would clearly be more useful if we could express \((m_A'/m_A)_\text{opt}\) in more specific terms. 
+To obtain such information, we divide the second equation in \cref{eq:mat_balance} by the first; after dividing by \(V\), we get
+\begin{equation}
+  \frac{m_A'}{m_A} = \frac{d_{A1} + k d_{A2}}{k d_{A1} + d_{A2}} \, .
+  \label{eq:mod_mat_balance}
+\end{equation}
+Now, equating the expressions for \(m_A'/m_A\) in \cref{eq:optimal_k,eq:mod_mat_balance}, after clearing terms we have in the cubic equation
+\begin{equation}
+  d_{A1} k^3 - d_{A2} k^2 + d_{A1} k + d_{A2} = 0 \, .
+  \label{eq:cubic_mat_balance}
+\end{equation}
+This can be simplified by dividing by \(d_{A2}\) and defining \(r\) as \(d_{A1}/d_{A2}\):
+\begin{equation}
+  r k^3 - k^2 - r k + 1 = 0 \, .
+  \label{eq:subst_mat_balance}
+\end{equation}
+
+The solution of \cref{eq:subst_mat_balance} yields one real and two conjugate complex roots. 
+The physically meaningful result from \cref{eq:subst_mat_balance} is 
+\begin{equation}
+  k_\text{opt} = \frac{1}{r} = \frac{d_{A2}}{d_{A1}} \, ,
+  \label{eq:general_k_opt}
+\end{equation}
+where \(r\) (or \(1/r\)) is called the \emph{distribution ratio} (or distribution coefficient) of component \emph{A} in the two phases and is a thermodynamic quantity because its value depends on equilibrium solubilities. 
+From \cref{eq:optimal_k}, the optimal mass ratio in the two samples is
+\begin{equation}
+  \br{\frac{m_A'}{m_A}}_\text{opt} = \frac{r^2 + 1}{2r} \, .
+  \label{eq:opt_mass_ratio}
+\end{equation}
+Consider this result. 
+It is reasonable to expect the optimal volume ratio \(k\) (or mass ratio) to be equal to some \emph{characteristic} property of the system, and this turns out to be its distribution ratio, \(r\).\sidenote{Note that it is assumed \(k > 1\). 
+If in reality, however, \(d_{A2} < d_{A1}\), then the denotation of phases must be reversed; that is, the upper phase in \cref{fig:two_samples_b} is \num{1} and the lower one is \num{2}.}
+
+An analogous result can be obtained for the optimal volume and mass ratios for component \emph{B}. 
+In general, these optimal conditions are not the same for the two components because the mutual solubilities of \emph{A} and \emph{B} are different; thus, if the optimization condition derived is \(k_A = d_{A2}/d_{A1}\), the constraint pertinent to component \emph{B}, \(k_B\), is 
+\begin{equation}
+  k_B = \frac{d_{B1}}{d_{B2}} \, .
+\end{equation}
+
 \end{document}

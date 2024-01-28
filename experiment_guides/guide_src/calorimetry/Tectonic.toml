@@ -1,0 +1,9 @@
+[doc]
+name = "The Solubility Product of PbCl2 from Electrochemical Measurements"
+bundle = "https://data1.fullyjustified.net/tlextras-2022.0r0.tar"
+
+[[output]]
+name = "ksp_pbcl2_electrochem"
+type = "pdf"
+shell_escape = true
+shell_escape_cwd = ".."

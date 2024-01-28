@@ -31,14 +31,13 @@
 	ymin=0,ymax=1]
 	
 	
-	% Isothermal plot, 80 °C
 	\addplot+ [magenta!90!white,smooth,thick]
 		table [x=Wavelength, y=Absorbance] {\pinktable}
 		node [below,pos=0.10] {pink};
 	\addplot+ [green!60!black,smooth,thick]
 		table [x=Wavelength, y=Absorbance] {\greentable}
 		node [above,pos=0.55] {green};
-	\addplot+ [violet!80!white,smooth,thick]
+	\addplot+ [brown!80!black,smooth,thick]
 		table [x=Wavelength, y=Absorbance] {\mixtable}
 		node [above,pos=0.3] {pink + green};
 	

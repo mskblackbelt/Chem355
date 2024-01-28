@@ -13,7 +13,7 @@ If you were to combine two pure liquids \(A\) and \(B\), you might find that a t
 
 \begin{figure}[htb]
 	\centering
-	\missingfigure{Two samples of two-phase systems. Left has more of component 1, right has more of component 2.}
+	\input{figures/arb_samples.tex}
 	\caption{Two samples of a two-phase, two-component system containing arbitrary amounts of each component. Both solutions are at the same temperature and pressure.}
 	\label{fig:two_samples}	
 \end{figure}
@@ -77,13 +77,13 @@ Thus there exists an \emph{optimal} mass ratio that provides maximum precision i
 Hill was aware of this situation, and in a paper with \textcite{hill1926mutual} presented the analysis of this system optimization. 
 We will show just the result here, but if you are curious to see how to obtain the result, see the Appendix. 
 
-Consider again two samples of a two-phase liquid system consisting of components \(A\) and \(B\) at the same temperature and pressure. 
-These samples are designed so that the volumes are \emph{exactly reversed} for each of the two phases (see \cref{fig:two_samples_b}). 
-\begin{figure}
-	\missingfigure{Two samples, reversed volumes for \(A\) and \(B\).}
+\begin{figure}[tb]
+	\input{figures/comp_samples.tex}
 	\caption{A set of complementary solutions of a two-phase, two-component system at the same temperature and pressure. The volumes of the two phases in the samples are exactly reversed.}
 	\label{fig:two_samples_b}
 \end{figure}
+Consider again two samples of a two-phase liquid system consisting of components \(A\) and \(B\) at the same temperature and pressure. 
+These samples are designed so that the volumes are \emph{exactly reversed} for each of the two phases (see \cref{fig:two_samples_b}). 
 The ratio of the two phases is denoted by \(k (k>1)\). 
 It turns out that the system can be designed to yield the most precise determination of the equilibrium densities  of component \(A\) in the two phases (\(d_{A1}\) and \(d_{A2}\)) if \(k\) has the value 
 \begin{equation}
@@ -98,7 +98,7 @@ An analogous result is found for the optimal volume ratio in the complementary s
 	k_{\text{opt},B} = \frac{d_{B1}}{d_{B2}} \, .
 	\label{eq:optimal_ratio_b}
 \end{equation}
-In general, these optimal conditions are no the same for the two components because the mutual solubilities of \(A\) and \(B\) are different. 
+In general, these optimal conditions are not the same for the two components because the mutual solubilities of \(A\) and \(B\) are different. 
 Nevertheless, \(k_{\text{opt},A}\) and \(k_{\text{opt},B}\) are often close enough that a satisfactory (although not absolute) optimization of the experiment can simultaneously accommodate both components. 
 Since the distribution ratio is not known before the experiment is preformed,\sidenote{finding \(d_{A1}\) and \(d_{A2}\) is, after all, the objective of the experiment} a preliminary experiment can be performed to obtain approximate values of the equilibrium compositions. 
 From a practical point of view, it is desirable to choose a complementary system in which \(k\) is not too large because in this case relative volumetric errors would become important. 
@@ -113,8 +113,9 @@ These samples will have complementary volumes (after mixing) that are in a ratio
 \begin{itemize}
 	\item Safety glasses or goggles must be worn in the laboratory.
 	\item Be particularly careful in removing and manipulating the hot sample cylinders.
-	\item Small amounts of \iupac{1-butanol} (or other organic) vapors will be released. Work in an open, well-ventilated laboratory or (preferably) inside a fume hood.
-	\item Do not allow the cylinders to build up pressure as they are heated; vent preiodically by briefly removing the stoppers.
+	\item Small amounts of organic vapors will be released. 
+		Work in an open, well-ventilated laboratory or (preferably) inside a fume hood.
+	\item Do not allow the cylinders to build up pressure as they are heated; vent periodically by briefly removing the stoppers.
 \end{itemize}
 
 \section{Procedure}
@@ -128,7 +129,9 @@ These samples will have complementary volumes (after mixing) that are in a ratio
 	\item Pasteur pipets
 	\item water bath
 	\item (1) \qtyrange{0}{100}{\celsius} thermometer
-	\item reagent-grade \iupac{1-butanol}
+	\item \iupac{cyclohexane} (reagent-grade)
+	\item \iupac{methanol} (reagent-grade)
+	\item \iupac{1-butanol} (reagent-grade)
 	\item distilled water
 \end{itemize}
 
@@ -142,7 +145,7 @@ For example, the cyclohexane/aniline system has an upper consolute temperature o
 
 In this experiment, you will study the \iupac{1-butanol}/water system or the methanol/cyclohexane system between \qtyrange{0}{\sim70}{\degreeCelsius}. 
 Because the upper consolute temperature of the former is \qty{\sim125}{\degreeCelsius}, only a portion of its miscibility curve can be constructed. 
-The upper consolute temerature of the latter system, however, is more accessible. 
+The upper consolute temperature of the latter system, however, is more accessible. 
 
 Prepare two \iupac{1-butanol}/water (or methanol/cyclohexane) samples that manifest two phases at room temperature. 
 The volumes of the two phases need not be complementary, but should be distinctly unequal, in a roughly \(3{:}1\) ratio. 
@@ -171,7 +174,7 @@ You will determine the densities of the phases for this unoptimized system from 
 	\item For the methanol/cyclohexane system, the upper consolute temperature (or critical solution temperature), \(T_c\), can be determined approximately. 
 	Fill a clean cylinder with a mixture (total mass \qtyrange{\sim6}{8}{\g}) that is about \qty{77}{\percent} cyclohexane by mass. 
 	Mix thoroughly and place a \qty{2}{\L} beaker that contains sufficient hot water (\qtyrange{\sim55}{60}{\degreeCelsius}) to completely cover the liquid in the cylinder. 
-	Inver the cylinder several times; vent periodically to release vapor. 
+	Invert the cylinder several times; vent periodically to release vapor. 
 	The liquid should appear as a homogeneous, one-phase system. 
 	Add sufficient quantities of crushed ice to the bath water so that the temperature drops \qtyrange{1}{2}{\degreeCelsius} per minute. 
 	Record the temperature at the first sign of a pale blue, hazy appearance to the cooling methanol/cyclohexane mixture. 
@@ -190,12 +193,12 @@ You will determine the densities of the phases for this unoptimized system from 
 	\item Tabulate the equilibrium volumes of the two phases in each cylinder at the different temperatures studied. 
 	\item Using these data, along with the bulk masses of the two components, determine the equilibrium densities \(d_{A1}\), \(d_{A2}\), \(d_{B1}\), and \(d_{B2}\). 
 	From this information, obtain the mole fractions of the two components in the two phases at each temperature studied. 
-	\item Construct the \(T\)-\(x_A\) phase diagram for the system. 
+	\item Construct the \(T\)--\(x_A\) phase diagram for the system. 
 	It should resemble \cref{fig:sample_t-x_diagram}. 
 	For specific guidance, consult your physical chemistry text or your instructor.
 	\begin{marginfigure}
 		\input{figures/sample_t-x_diagram.tex}
-		\caption{Schematic \(T\)-\(x_A\) diagram. \(T_c\) is the upper consolute temperature. 
+		\caption{Schematic \(T\)--\(x_A\) diagram. \(T_c\) is the upper consolute temperature. 
 		Each of the four pairs of horizontal circles represents the equilibrium mole fractions of \(A\) in the two phases at the particular temperatures.}
 		\label{fig:sample_t-x_diagram}
 	\end{marginfigure}
